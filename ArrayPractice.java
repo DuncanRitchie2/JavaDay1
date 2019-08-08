@@ -231,13 +231,58 @@ public class ArrayPractice {
         return Arrays.copyOf(temp,tempn);
     }
 
+    public static int[] removeDuplicateInts(int[] array) {
+        int[] temp = new int[array.length];
+        // tempn will be the length of the return.
+        int tempn = 0;
+        for (int i = 0; i < array.length; i++) {
+            // toAdd determines whether we should add array[i] to temp.
+            boolean toAdd = true;
+            for (int j = i+1; j < array.length; j++) {
+                if (array[i] == array[j]) {
+                    toAdd = false;
+                    break;
+                }
+            }
+            if (toAdd) {
+                temp[tempn] = array[i];
+                tempn++;
+            }
+        }
+        return Arrays.copyOf(temp,tempn);
+    }
+
     public static ArrayList stringArrayToArrayList(String[] array) {
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         for (String string :  array) {
             arrayList.add(string);
         }
         return arrayList;
     }
+
+    public static String[] arrayListToStringArray(ArrayList<String> arrayList) {
+        String[] array = new String[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            array[i] = arrayList.get(i);
+        }
+        return array;
+    }
+
+    /*
+    public static int lengthConsecutiveIntegers(int[] array) {
+        // start will be the int the sequence of consecutives starts at.
+        int start = 0;
+        // tempLength is the length of the current set of consecutives.
+        int tempLength = 1;
+        // length will be the longest value of tempLength found.
+        int length = 1;
+        int[] noDuplicates = removeDuplicateInts(array);
+        for (int i = 0; i < noDuplicates.length; i++) {
+            while ()
+        }
+        return length;
+    }
+     */
 
     public static void main(String[] args) {
         // Numbers in brackets refer to puzzles from here: https://www.w3resource.com/java-exercises/array/index.php
@@ -261,7 +306,12 @@ public class ArrayPractice {
         System.out.println("(13) The duplicates in the first String[] are..."+ StringMethods.toSeparatedString(findRepeatedStrings(strings)," "));
         String[] moreStrings = {"fulmar","blackbird","honey buzzard","hooded crow"};
         System.out.println("(14) The duplicates in two String[] arrays are.."+ StringMethods.toSeparatedString(findInBothArrays(strings,moreStrings)," "));
-        System.out.println("(16) The first String[] with duplicates removed "+ StringMethods.toSeparatedString(removeDuplicateStrings(strings)," - "));
-        System.out.println("(20) The first String[] as an ArrayList...      "+stringArrayToArrayList(strings).toString());
+        System.out.println("(16) The first String[] with duplicates removed."+ StringMethods.toSeparatedString(removeDuplicateStrings(strings)," - "));
+        int[] ints = {49, 6, 3, 200, 2, 4, 70, 5, 4, 45};
+        System.out.println("(16) The array of ints with duplicates removed.."+removeDuplicateInts(ints));
+        ArrayList birdsList = stringArrayToArrayList(strings);
+        System.out.println("(20) The first String[] as an ArrayList...      "+birdsList.toString());
+        System.out.println("(21) The ArrayList as an array...               "+StringMethods.toSeparatedString(arrayListToStringArray(birdsList)," - "));
+//        System.out.println("(34) The most consecutives in ints have length.."+lengthConsecutiveIntegers(ints));
     }
 }
