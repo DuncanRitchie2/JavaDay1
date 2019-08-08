@@ -1,5 +1,6 @@
 package com.duncanritchie;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArrayPractice {
@@ -230,6 +231,14 @@ public class ArrayPractice {
         return Arrays.copyOf(temp,tempn);
     }
 
+    public static ArrayList stringArrayToArrayList(String[] array) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        for (String string :  array) {
+            arrayList.add(string);
+        }
+        return arrayList;
+    }
+
     public static void main(String[] args) {
         // Numbers in brackets refer to puzzles from here: https://www.w3resource.com/java-exercises/array/index.php
         // Questions from that list referring to integers have been answered for doubles.
@@ -253,5 +262,6 @@ public class ArrayPractice {
         String[] moreStrings = {"fulmar","blackbird","honey buzzard","hooded crow"};
         System.out.println("(14) The duplicates in two String[] arrays are.."+StringArraySortOrToString.stringWithSeparator(findInBothArrays(strings,moreStrings)," "));
         System.out.println("(16) The first String[] with duplicates removed "+StringArraySortOrToString.stringWithSeparator(removeDuplicateStrings(strings)," - "));
+        System.out.println("(20) The first String[] as an ArrayList...      "+stringArrayToArrayList(strings).toString());
     }
 }
