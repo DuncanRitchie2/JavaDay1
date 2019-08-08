@@ -190,29 +190,68 @@ public class ArrayPractice {
         for (int i = 0; i < tempn; i++) {
             result[i] = temp[i];
         }
+        // Alternatively, we could have used Arrays.copyOf(temp,tempn), which is the approach in findInBothArrays().
         return result;
+    }
+
+    public static String[] findInBothArrays(String[] array1, String[] array2) {
+        String[] temp = new String[Math.min(array1.length,array2.length)];
+        int tempn = 0;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j]) {
+                    temp[tempn] = array1[i];
+                    tempn++;
+                }
+            }
+        }
+        String[] result = Arrays.copyOf(temp,tempn);
+        return result;
+    }
+
+    public static String[] removeDuplicateStrings(String[] array) {
+        String[] temp = new String[array.length];
+        // tempn will be the length of the return.
+        int tempn = 0;
+        for (int i = 0; i < array.length; i++) {
+            // toAdd determines whether we should add array[i] to temp.
+            boolean toAdd = true;
+            for (int j = i+1; j < array.length; j++) {
+                if (array[i] == array[j]) {
+                    toAdd = false;
+                    break;
+                }
+            }
+            if (toAdd) {
+                temp[tempn] = array[i];
+                tempn++;
+            }
+        }
+        return Arrays.copyOf(temp,tempn);
     }
 
     public static void main(String[] args) {
         // Numbers in brackets refer to puzzles from here: https://www.w3resource.com/java-exercises/array/index.php
         // Questions from that list referring to integers have been answered for doubles.
         double[] doubles = {29.25, 34, 19, 43, 19, 13.13, -35, 1};
-        System.out.println("(2) The sum of the array of doubles is...      "+arraySum(doubles));
+        System.out.println("(2) The sum of the array of doubles is...       "+arraySum(doubles));
         System.out.println("(3) Grid made from a repeated motif:");
         printGrid("O",7,5);
-        System.out.println("(4) The mean of the array of doubles is...     "+arrayMean(doubles));
-        System.out.println("(5) Does the array contain 19?                 "+contains(doubles,19));
-        System.out.println("(5) Does the array contain 23?                 "+contains(doubles,23));
-        System.out.println("(6) The index of 19 in the array is...         "+indexOf(doubles, 19));
-        System.out.println("(6) The index of 190 in the array is...        "+indexOf(doubles, 190));
-        System.out.println("(7) The array with 13.13 removed is...         "+stringOfDoublesWithSeparator(removeDouble(doubles, 13.13)," "));
-        System.out.println("(9) The array with 140 inserted is...          "+stringOfDoublesWithSeparator(insertDouble(doubles, 140,3)," "));
-        System.out.println("(10) The maximum of the array is...            "+max(doubles));
-        System.out.println("(10) The minimum of the array is...            "+min(doubles));
-        System.out.println("(11) The array reversed is...                  "+stringOfDoublesWithSeparator(reverseDoubles(doubles)," "));
-        System.out.println("(12) The duplicate values in the doubles are..."+stringOfDoublesWithSeparator(findRepeatedDoubles(doubles)," "));
+        System.out.println("(4) The mean of the array of doubles is...      "+arrayMean(doubles));
+        System.out.println("(5) Does the array contain 19?                  "+contains(doubles,19));
+        System.out.println("(5) Does the array contain 23?                  "+contains(doubles,23));
+        System.out.println("(6) The index of 19 in the array is...          "+indexOf(doubles, 19));
+        System.out.println("(6) The index of 190 in the array is...         "+indexOf(doubles, 190));
+        System.out.println("(7) The array with 13.13 removed is...          "+stringOfDoublesWithSeparator(removeDouble(doubles, 13.13)," "));
+        System.out.println("(9) The array with 140 inserted is...           "+stringOfDoublesWithSeparator(insertDouble(doubles, 140,3)," "));
+        System.out.println("(10) The maximum of the array is...             "+max(doubles));
+        System.out.println("(10) The minimum of the array is...             "+min(doubles));
+        System.out.println("(11) The array reversed is...                   "+stringOfDoublesWithSeparator(reverseDoubles(doubles)," "));
+        System.out.println("(12) The duplicates in the doubles are...       "+stringOfDoublesWithSeparator(findRepeatedDoubles(doubles)," "));
         String[] strings = {"robin","robin","fulmar","blackbird","lesser black-backed gull","canada goose","blue tit","Canada goose","fulmar","carrion crow","lammergeier","robin","carrion crow"};
-        System.out.println("(13) The duplicate values in the Strings are..."+StringArraySortOrToString.stringWithSeparator(findRepeatedStrings(strings)," "));
-
+        System.out.println("(13) The duplicates in the first String[] are..."+StringArraySortOrToString.stringWithSeparator(findRepeatedStrings(strings)," "));
+        String[] moreStrings = {"fulmar","blackbird","honey buzzard","hooded crow"};
+        System.out.println("(14) The duplicates in two String[] arrays are.."+StringArraySortOrToString.stringWithSeparator(findInBothArrays(strings,moreStrings)," "));
+        System.out.println("(16) The first String[] with duplicates removed "+StringArraySortOrToString.stringWithSeparator(removeDuplicateStrings(strings)," - "));
     }
 }
