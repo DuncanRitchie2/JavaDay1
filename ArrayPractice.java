@@ -268,6 +268,41 @@ public class ArrayPractice {
         return array;
     }
 
+    public static String twiceNestedIntsToString(int[][] array, String firstSeparator, String secondSeparator) {
+        String temp = "";
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                temp += array[i][j];
+                if (j < array[i].length-1) {
+                    temp += secondSeparator;
+                }
+            }
+            if (i < array.length-1) {
+                temp += firstSeparator;
+            }
+        }
+        return temp;
+    }
+
+    // This function returns an array of subarrays that each contain two words that sum to the given sum.
+    public static int[][] pairsThatSum(int[] array, int sum) {
+        int[][] temp = new int[array.length][2];
+        int n = 0;
+        for (int i = 0; i < array.length -1; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (array[i] + array[j] == sum) {
+                    int[] newSubarray = new int[2];
+                    newSubarray[0] = array[i];
+                    newSubarray[1] = array[j];
+                    temp[n] = newSubarray;
+                    n++;
+                }
+            }
+        }
+
+        return Arrays.copyOf(temp,n);
+    }
+
     /*
     public static int lengthConsecutiveIntegers(int[] array) {
         // start will be the int the sequence of consecutives starts at.
@@ -312,6 +347,9 @@ public class ArrayPractice {
         ArrayList birdsList = stringArrayToArrayList(strings);
         System.out.println("(20) The first String[] as an ArrayList...      "+birdsList.toString());
         System.out.println("(21) The ArrayList as an array...               "+StringMethods.toSeparatedString(arrayListToStringArray(birdsList)," - "));
+        int[][] twiceNestedInts = {{1,4},{5342,31,12},{23,1},{0,1}};
+        System.out.println(twiceNestedIntsToString(twiceNestedInts,"  /  "," "));
+        System.out.println("(22) The pairs of ints that sum to 9 are...     "+twiceNestedIntsToString(pairsThatSum(ints,9)," ","+"));
 //        System.out.println("(34) The most consecutives in ints have length.."+lengthConsecutiveIntegers(ints));
     }
 }
