@@ -1,20 +1,16 @@
 package com.duncanritchie;
 
 public class Bird {
-    private String name = "particular bird";
-    private String species = "particular species";
+    private String name;
+    private String species;
     private boolean haveISeenIt;
-    private String beakColour;
-    private float beakLength;
-    private String comment = "This bird is really awesome!";
-    private String noise = "cheep cheep";
+    private String comment;
+    private String noise;
 
-    public Bird(String name, String species, boolean haveISeenIt, String beakColour, float beakLength, String comment, String noise) {
+    public Bird(String name, String species, boolean haveISeenIt, String comment, String noise) {
         this.name = name;
         this.species = species;
         this.haveISeenIt = haveISeenIt;
-        this.beakColour = beakColour;
-        this.beakLength = beakLength;
         this.comment = comment;
         this.noise = noise;
     }
@@ -36,14 +32,6 @@ public class Bird {
         this.haveISeenIt = bool;
     }
 
-    public void setBeakColour(String colour) {
-        this.beakColour = colour;
-    }
-
-    public void setBeakLength(float length) {
-        this.beakLength = length;
-    }
-
     public void setComment(String comment) {
         this.comment = comment;
     }
@@ -56,7 +44,7 @@ public class Bird {
         else {
             haveSeen = "have not seen";
         }
-        System.out.println(String.format("I %s a %s; its species is %s and it has a %s-centimetre %s beak. %s",haveSeen,this.name,this.species,this.beakLength,this.beakColour,this.comment));
+        System.out.println(String.format("I %s a %s of species %s. %s",haveSeen,this.name,this.species,this.comment));
     }
 
     public void makeNoise() {
@@ -65,14 +53,6 @@ public class Bird {
 
     public String getName() {
         return this.name;
-    }
-
-    public float getBeakLength() {
-        return beakLength;
-    }
-
-    public String getBeakColour() {
-        return beakColour;
     }
 
     public String getComment() {
