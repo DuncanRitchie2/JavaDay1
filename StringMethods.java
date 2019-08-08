@@ -1,11 +1,11 @@
 package com.duncanritchie;
 import java.util.Arrays;
 
-public class StringArraySortOrToString {
+public class StringMethods {
 
     // This method concatenates String[] arrays into a single String with a given separator.
     // For example, stringWithSeparator(["a","b","c"],"~") = "a~b~c"
-    public static String stringWithSeparator(String[] array, String separator) {
+    public static String toSeparatedString(String[] array, String separator) {
         String string = "";
         for (int i = 0; i < array.length; i++) {
             string += array[i];
@@ -45,10 +45,10 @@ public class StringArraySortOrToString {
     // This main method demonstrates my custom sort function and the native sort function from java.utils.
     public static void main(String[] args) {
         String[] unsorted = {"robin","fulmar","blackbird","lesser black-backed gull","canada goose","blue tit","Canada goose","lapwing","carrion crow","lammergeier"};
-        System.out.println("The unsorted array is...                         "+stringWithSeparator(unsorted," - "));
-        System.out.println("The array sorted with my custom function is...   "+stringWithSeparator(sortAlph(unsorted)," - "));
+        System.out.println("The unsorted array is...                         "+ toSeparatedString(unsorted," - "));
+        System.out.println("The array sorted with my custom function is...   "+ toSeparatedString(sortAlph(unsorted)," - "));
         String[] sorted = unsorted;
         Arrays.sort(sorted);
-        System.out.println("The array sorted with the native sort is...      "+stringWithSeparator(sorted," - "));
+        System.out.println("The array sorted with the native sort is...      "+ toSeparatedString(sorted," - "));
     }
 }

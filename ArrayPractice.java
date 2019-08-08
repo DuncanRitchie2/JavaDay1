@@ -258,10 +258,10 @@ public class ArrayPractice {
         System.out.println("(11) The array reversed is...                   "+stringOfDoublesWithSeparator(reverseDoubles(doubles)," "));
         System.out.println("(12) The duplicates in the doubles are...       "+stringOfDoublesWithSeparator(findRepeatedDoubles(doubles)," "));
         String[] strings = {"robin","robin","fulmar","blackbird","lesser black-backed gull","canada goose","blue tit","Canada goose","fulmar","carrion crow","lammergeier","robin","carrion crow"};
-        System.out.println("(13) The duplicates in the first String[] are..."+StringArraySortOrToString.stringWithSeparator(findRepeatedStrings(strings)," "));
+        System.out.println("(13) The duplicates in the first String[] are..."+ StringMethods.toSeparatedString(findRepeatedStrings(strings)," "));
         String[] moreStrings = {"fulmar","blackbird","honey buzzard","hooded crow"};
-        System.out.println("(14) The duplicates in two String[] arrays are.."+StringArraySortOrToString.stringWithSeparator(findInBothArrays(strings,moreStrings)," "));
-        System.out.println("(16) The first String[] with duplicates removed "+StringArraySortOrToString.stringWithSeparator(removeDuplicateStrings(strings)," - "));
+        System.out.println("(14) The duplicates in two String[] arrays are.."+ StringMethods.toSeparatedString(findInBothArrays(strings,moreStrings)," "));
+        System.out.println("(16) The first String[] with duplicates removed "+ StringMethods.toSeparatedString(removeDuplicateStrings(strings)," - "));
         System.out.println("(20) The first String[] as an ArrayList...      "+stringArrayToArrayList(strings).toString());
     }
 }
