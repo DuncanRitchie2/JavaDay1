@@ -1,6 +1,12 @@
 package com.duncanritchie;
 
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Pet {
+
+    // Initialising all variables.
     private boolean petIsAlive = true;
     private String animal;
     private String animalLatin;
@@ -16,12 +22,35 @@ public class Pet {
     private int thirst = 50;
     private int boredom = 50;
     private int restlessness = 50;
-    private int illness = 50;
+    private int illness = 0;
+    private int age = 0;
+
+    private Timer timer = new Timer();
+    // The timer simulates ageing by changing the hardship values
+    // and announces the new values, every two seconds.
+    private TimerTask changeAfterInterval = new TimerTask() {
+        public void run() {
+            hunger += Math.floor(Math.random() * 10 - 2);
+            thirst += Math.floor(Math.random() * 10 - 2);
+            boredom += Math.floor(Math.random() * 10 - 2);
+            restlessness += Math.floor(Math.random() * 10 - 2);
+            illness += Math.floor(Math.random() * 20 - 4);
+            age += 2;
+        }
+    };
+    // trackAge will be iterated every second.
+    private TimerTask trackAge = new TimerTask() {
+        public void run() {
+            age++;
+        }
+    };
 
     public Pet(String animal, String name, String gender) {
         this.setAnimal(animal);
         this.setName(name);
         this.setGender(gender);
+        timer.scheduleAtFixedRate(trackAge,0,1000);
+        timer.scheduleAtFixedRate(changeAfterInterval,2000,2000);
     }
 
     public void setAnimal(String animal) {
@@ -111,6 +140,10 @@ public class Pet {
         return animalLatin;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public int getBoredom() {
         return boredom;
     }
@@ -181,6 +214,7 @@ public class Pet {
     }
 
     public void kill(int selection) {
+        this.timer.cancel();
         this.petIsAlive = false;
         String[] causesOfDeath = {
             "You have starved %s the %s to death.",
@@ -220,4 +254,56 @@ public class Pet {
             this.kill(5);
         }
     }
+
+    public void announcePetInfo() {
+        String hardshipsString = "hunger "+this.getHunger()+", thirst "+this.getThirst()+", boredom "+this.getBoredom()+", restlessness "+this.getRestlessness()+", and illness "+this.getIllness()+".";
+        if (this.isAlive()) {
+            System.out.println(this.getName()+" now has "+hardshipsString);
+            promptForCare();
+        }
+        else {
+            System.out.println(this.getName()+" died with "+hardshipsString);
+            System.out.println("Age at death: "+this.getAge()+" seconds.");
+        }
+    }
+
+    public void promptForCare() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("To feed "+this.getName()+", enter 1; to give "+this.getObjectPronoun()+" water, enter 2; to play with "+this.getObjectPronoun()+", enter 3; to take "+this.getObjectPronoun()+" for a walk, enter 4; to give "+this.getObjectPronoun()+" medicine, enter 5; to immediately kill "+this.getObjectPronoun()+", enter 6.");
+        int selection = scan.nextInt();
+        careForPet(selection);
+    }
+
+    public void careForPet(int selection) {
+        switch (selection) {
+            case 1:
+                this.giveFood();
+                announcePetInfo();
+                break;
+            case 2:
+                this.giveWater();
+                announcePetInfo();
+                break;
+            case 3:
+                this.givePlay();
+                announcePetInfo();
+                break;
+            case 4:
+                this.giveExercise();
+                announcePetInfo();
+                break;
+            case 5:
+                this.giveMedicine();
+                announcePetInfo();
+                break;
+            case 6:
+                System.out.println("You have killed your pet.");
+                this.kill(6);
+                break;
+            default:
+                System.out.println("Invalid selection! Try again.");
+                promptForCare();
+        }
+    }
+
 }
