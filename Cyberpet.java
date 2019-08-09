@@ -17,8 +17,14 @@ public class Cyberpet {
     }
 
     public static void announcePetInfo(Pet pet, Scanner scan) {
-        System.out.println(pet.getName()+" now has hunger "+pet.getHunger()+", thirst "+pet.getThirst()+", boredom "+pet.getBoredom()+", restlessness "+pet.getRestlessness()+", and illness "+pet.getIllness()+".");
-        promptForCare(pet, scan);
+        String hardshipsString = "hunger "+pet.getHunger()+", thirst "+pet.getThirst()+", boredom "+pet.getBoredom()+", restlessness "+pet.getRestlessness()+", and illness "+pet.getIllness()+".";
+        if (pet.isAlive()) {
+            System.out.println(pet.getName()+" now has "+hardshipsString);
+            promptForCare(pet, scan);
+        }
+        else {
+            System.out.println(pet.getName()+" died with "+hardshipsString);
+        }
     }
 
     public static void promptForCare(Pet pet, Scanner scan) {
@@ -51,7 +57,7 @@ public class Cyberpet {
                 break;
             case 6:
                 System.out.println("You have killed your pet.");
-                pet.kill();
+                pet.kill(6);
                 break;
             default:
                 System.out.println("Invalid selection! Try again.");
