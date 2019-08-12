@@ -28,14 +28,16 @@ public class Pet {
     private Timer timer = new Timer();
     // The timer simulates ageing by changing the hardship values
     // and announces the new values, every two seconds.
-    private TimerTask changeAfterInterval = new TimerTask() {
+    private TimerTask ageingProcess = new TimerTask() {
         public void run() {
             hunger += Math.floor(Math.random() * 10 - 2);
             thirst += Math.floor(Math.random() * 10 - 2);
             boredom += Math.floor(Math.random() * 10 - 2);
             restlessness += Math.floor(Math.random() * 10 - 2);
             illness += Math.floor(Math.random() * 20 - 4);
-            age += 2;
+            // flattenValues() triggers kill() if any hardship exceeds 100.
+            flattenValues();
+            announcePetInfo();
         }
     };
     // trackAge will be iterated every second.
@@ -50,7 +52,7 @@ public class Pet {
         this.setName(name);
         this.setGender(gender);
         timer.scheduleAtFixedRate(trackAge,0,1000);
-        timer.scheduleAtFixedRate(changeAfterInterval,2000,2000);
+        timer.scheduleAtFixedRate(ageingProcess,2000,2000);
     }
 
     public void setAnimal(String animal) {
@@ -63,7 +65,7 @@ public class Pet {
 
     public void setAnimalLatin(String animalLatin) {
         this.animalLatin = animalLatin;
-        System.out.println("Animal tibi est "+animalLatin);
+        System.out.println("Animal tibi est "+animalLatin+".");
     }
 
     public void setName(String name) {
@@ -166,7 +168,7 @@ public class Pet {
 
     public void giveFood() {
         System.out.println("You have given "+this.name+" food.");
-        this.hunger -= 10;
+        this.hunger -= 12;
         this.thirst += 3;
         this.restlessness += 9;
         this.illness -= 1;
@@ -176,7 +178,7 @@ public class Pet {
 
     public void giveWater() {
         System.out.println("You have given "+this.name+" water.");
-        this.thirst -= 10;
+        this.thirst -= 12;
         this.hunger -= 1;
         this.restlessness += 2;
         this.boredom += 7;
@@ -186,8 +188,8 @@ public class Pet {
 
     public void givePlay() {
         System.out.println("You have played with "+this.name+".");
-        this.boredom -= 10;
-        this.restlessness -= 8;
+        this.boredom -= 12;
+        this.restlessness -= 11;
         this.hunger += 5;
         this.thirst += 5;
         this.illness += 2;
@@ -196,7 +198,7 @@ public class Pet {
 
     public void giveExercise() {
         System.out.println("You have taken "+this.name+" for a walk.");
-        this.restlessness -= 10;
+        this.restlessness -= 12;
         this.hunger += 6;
         this.thirst += 12;
         this.illness -= 3;
@@ -205,7 +207,7 @@ public class Pet {
 
     public void giveMedicine() {
         System.out.println("You have given "+this.name+" medicine.");
-        this.illness -= 10;
+        this.illness -= 12;
         this.hunger -= 2;
         this.thirst += 1;
         this.boredom += 2;
@@ -228,29 +230,31 @@ public class Pet {
     }
 
     public void flattenValues() {
-        if (this.hunger < 0) {
-            this.hunger = 0;
-        } else if (this.hunger > 99) {
+        int min = 0;
+        int max = 99;
+        if (this.hunger < min) {
+            this.hunger = min;
+        } else if (this.hunger > max) {
             this.kill(1);
         }
-        if (this.thirst < 0) {
-            this.thirst = 0;
-        } else if (this.thirst > 99) {
+        if (this.thirst < min) {
+            this.thirst = min;
+        } else if (this.thirst > max) {
             this.kill(2);
         }
-        if (this.boredom < 0) {
-            this.boredom = 0;
-        } else if (this.boredom > 99) {
+        if (this.boredom < min) {
+            this.boredom = min;
+        } else if (this.boredom > max) {
             this.kill(3);
         }
-        if (this.restlessness < 0) {
-            this.restlessness = 0;
-        } else if (this.restlessness > 99) {
+        if (this.restlessness < min) {
+            this.restlessness = min;
+        } else if (this.restlessness > max) {
             this.kill(4);
         }
-        if (this.illness < 0) {
-            this.illness = 0;
-        } else if (this.illness > 99) {
+        if (this.illness < min) {
+            this.illness = min;
+        } else if (this.illness > max) {
             this.kill(5);
         }
     }
@@ -278,23 +282,18 @@ public class Pet {
         switch (selection) {
             case 1:
                 this.giveFood();
-                announcePetInfo();
                 break;
             case 2:
                 this.giveWater();
-                announcePetInfo();
                 break;
             case 3:
                 this.givePlay();
-                announcePetInfo();
                 break;
             case 4:
                 this.giveExercise();
-                announcePetInfo();
                 break;
             case 5:
                 this.giveMedicine();
-                announcePetInfo();
                 break;
             case 6:
                 System.out.println("You have killed your pet.");
