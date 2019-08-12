@@ -227,6 +227,7 @@ public class Pet {
             "You have deliberately killed %s the %s. You bastard."
         };
         System.out.println(String.format(causesOfDeath[selection-1],this.name,this.animal,this.subjectPronoun));
+        this.announcePetInfo();
     }
 
     public void flattenValues() {
