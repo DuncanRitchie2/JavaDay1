@@ -1,5 +1,6 @@
 package com.duncanritchie;
 
+// This prints a random integer (1-10) and creates a new Bird.
 public class Main {
 
     public static void main(String[] args) {
