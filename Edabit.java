@@ -109,12 +109,22 @@ public class Edabit {
 
     public static boolean isPrime(int num) {
         boolean bool = num>1;
-        for (int i = 2; i < num/2+1; i++) {
+        int factorCeiling = (int)Math.sqrt(num)+1;
+        for (int i = 2; i < factorCeiling && bool; i++) {
             if (num%i==0) {
                 bool = false;
-                break;
             }
         }
         return bool;
+    }
+
+    public static boolean isPerfect(int num) {
+        int total = 0;
+        for (int i = 1; i < num/2+1; i++) {
+            if (num%i==0) {
+                total+=i;
+            }
+        }
+        return total==num && num!=0;
     }
 }

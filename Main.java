@@ -29,9 +29,17 @@ public class Main {
 //        System.out.println("How many digits does 25 have?                               "+Edabit.numDigits(25));
 //        System.out.println("How many digits does 4 have?                                "+Edabit.numDigits(4));
 //        System.out.println("How many digits does 39 have?                               "+Edabit.numDigits(39));
-        System.out.println("Prime numbers up to 1000:");
-        for (int i = 0; i < 1000; i++) {
+
+        System.out.println("Prime numbers up to ten thousand:");
+        for (int i = 0; i < 10000; i++) {
             if (Edabit.isPrime(i)) {
+                System.out.println(i);
+            }
+        }
+
+        System.out.println("Perfect numbers up to ten thousand:");
+        for (int i = 0; i < 10000; i++) {
+            if (Edabit.isPerfect(i)) {
                 System.out.println(i);
             }
         }
