@@ -98,7 +98,8 @@ public class Edabit {
         while (str.length() >1 && bool) {
             String[] array = str.split("");
             if (array[0].equals(array[array.length-1])) {
-                str = str.substring(1,array.length-2);
+                str = str.substring(1,array.length-1);
+                System.out.println("New string is "+str);
             }
             else {
                 bool = false;
@@ -126,5 +127,54 @@ public class Edabit {
             }
         }
         return total==num && num!=0;
+    }
+
+    public static int countPrimesUpTo(int num) {
+        int numPrimes = 0;
+        for (int i = 2; i <= num; i++) {
+            if (isPrime(i)) {
+                numPrimes++;
+            }
+        }
+        return numPrimes;
+    }
+
+//    public static int countPrimesUpToNotUsingOwnFunction(int num) {
+//        int numPrimes = 0;
+//        for (int i = 2; i <= num; i++) {
+//            boolean isPrime = true;
+//            int factorCeiling = (int)Math.sqrt(i)+1;
+//            for (int j = 2; j < factorCeiling && isPrime; j++) {
+//                if (num%j==0) {
+//                    isPrime = false;
+//                }
+//            }
+//            if (isPrime) {
+//                numPrimes++;
+//            }
+//        }
+//        return numPrimes;
+//    }
+
+    public static int[][] returnSquarePatch(int n) {
+        int[][] square = new int[n][n];
+        for (int i = 0; i<n; i++) {
+            int[] row = new int[n];
+            for (int j = 0; j<n; j++) {
+                row[j] = n;
+            }
+            square[i] = row;
+        }
+        return square;
+    }
+
+    public static void printSquarePatch(int n) {
+        for (int i = 0; i<n; i++) {
+            String row = "";
+            for (int j = 0; j<n; j++) {
+                row += n;
+            }
+            System.out.println(row);
+        }
     }
 }

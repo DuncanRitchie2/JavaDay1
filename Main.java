@@ -20,6 +20,8 @@ public class Main {
 //        System.out.println("Is naan a palindrome?                                       "+Edabit.isPalindrome("naan"));
 //        System.out.println("Is fulmar a palindrome?                                     "+Edabit.isPalindrome("fulmar"));
 //        System.out.println("Is racecar a palindrome?                                    "+Edabit.isPalindrome("racecar"));
+//        System.out.println("Is abcba a palindrome?                                  "+Edabit.isPalindrome("abcba"));
+//        System.out.println("Is abccdba a palindrome?                                "+Edabit.isPalindrome("abccdba"));
 //        System.out.println("Is the empty string a palindrome?                           "+Edabit.isPalindrome(""));
 //        System.out.println("Is me a palindrome?                                         "+Edabit.isPalindrome("me"));
 //        System.out.println("Is hat a palindrome?                                        "+Edabit.isPalindrome("hat"));
@@ -30,20 +32,29 @@ public class Main {
 //        System.out.println("How many digits does 4 have?                                "+Edabit.numDigits(4));
 //        System.out.println("How many digits does 39 have?                               "+Edabit.numDigits(39));
 
-        System.out.println("Prime numbers up to ten thousand:");
-        for (int i = 0; i < 10000; i++) {
-            if (Edabit.isPrime(i)) {
-                System.out.println(i);
-            }
-        }
+//        System.out.println("Prime numbers up to ten thousand:");
+//        for (int i = 0; i < 10000; i++) {
+//            if (Edabit.isPrime(i)) {
+//                System.out.println(i);
+//            }
+//        }
 
-        System.out.println("Perfect numbers up to ten thousand:");
-        for (int i = 0; i < 10000; i++) {
-            if (Edabit.isPerfect(i)) {
-                System.out.println(i);
-            }
-        }
+//        System.out.println("Perfect numbers up to ten thousand:");
+//        for (int i = 0; i < 10000; i++) {
+//            if (Edabit.isPerfect(i)) {
+//                System.out.println(i);
+//            }
+//        }
 
+//        System.out.println("int     number of primes up to int");
+//        for (int i = 0; i < 100; i++) {
+//            System.out.println(i+"       "+Edabit.countPrimesUpTo(i));
+//        }
+
+        System.out.println("Squares with n less than ten:");
+        for (int i = 0; i < 10; i++) {
+            Edabit.printSquarePatch(i);
+        }
 
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
