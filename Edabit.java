@@ -177,4 +177,66 @@ public class Edabit {
             System.out.println(row);
         }
     }
+
+    public static String[] getExtensions(String[] arr){
+        String[] extensions = new String[arr.length];
+        for (int i = 0; i<arr.length; i++) {
+            String extension = arr[i].substring(arr[i].indexOf(".")+1);
+            extensions[i] = extension;
+        }
+        return extensions;
+    }
+
+    public static int[] timeSum(String[] s) {
+        int hrsTotal = 0;
+        int minsTotal = 0;
+        int secsTotal = 0;
+        for (String string : s) {
+            String[] timeAsArray = string.split(":");
+            hrsTotal += Integer.parseInt(timeAsArray[0]);
+            minsTotal += Integer.parseInt(timeAsArray[1]);
+            secsTotal += Integer.parseInt(timeAsArray[2]);
+        }
+        if (secsTotal>59) {
+            minsTotal += Math.floor(secsTotal/60);
+            secsTotal = secsTotal%60;
+        }
+        if (minsTotal>59) {
+            hrsTotal += Math.floor(minsTotal/60);
+            minsTotal = minsTotal%60;
+        }
+        int[] output = new int[3];
+        output[0] = hrsTotal;
+        output[1] = minsTotal;
+        output[2] = secsTotal;
+        return output;
+    }
+
+    // Takes an array of ints, and returns the first int that appears an odd number of times.
+    // e.g. findOdd(1,6,2,6,22,7,1,7,2) = 22 because 22 appears once and the other numbers appear twice.
+    public static int findOdd(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int numCopies = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i]==arr[j]) {
+                    numCopies++;
+                }
+            }
+            if (numCopies%2!=0) {
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+
+    public static boolean validateEmail(String s) {
+        int posAt = s.indexOf("@",1);
+        int posDot = s.indexOf(".",posAt+1);
+        if (posAt!=-1 && posDot!=-1 && posDot!=posAt+1 && posDot!=s.length()-1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

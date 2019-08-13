@@ -16,6 +16,19 @@ public class StringMethods {
         return string;
     }
 
+    // This method concatenates String[] arrays into a single String with a given separator.
+    // For example, stringWithSeparator(["a","b","c"],"~") = "a~b~c"
+    public static String intsToSeparatedString(int[] array, String separator) {
+        String string = "";
+        for (int i = 0; i < array.length; i++) {
+            string += array[i];
+            if (i<array.length-1) {
+                string += separator;
+            }
+        }
+        return string;
+    }
+
     // This method returns an array of Strings sorted alphabetically.
     // It ignores case unless two pairs of Strings differ only in their case.
     public static String[] sortAlph(String[] unsorted) {
