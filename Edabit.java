@@ -316,4 +316,23 @@ public class Edabit {
         int right = arr.length-1;
         return binarySearch(arr, left, right, elem);
     }
+
+    public static int[] countPositivesSumNegatives(int[] input) {
+        if (input == null || input.length == 0) {
+            return new int[0];
+        }
+        else {
+            int posCount = 0;
+            int negSum = 0;
+            for (int num : input) {
+                if (num > 0) {
+                    posCount++;
+                } else if (num < 0) {
+                    negSum += num;
+                }
+            }
+            int[] output = {posCount, negSum};
+            return output;
+        }
+    }
 }
