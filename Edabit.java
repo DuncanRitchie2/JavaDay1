@@ -272,4 +272,19 @@ public class Edabit {
         }
         return substring;
     }
+
+    // This is a recursive function to reduce int[] to its sum.
+    public static int sumRecursive(int[] arr) {
+        int output;
+        if (arr.length==0) {
+            output = 0;
+        }
+        else if (arr.length == 1) {
+            output = arr[0];
+        }
+        else {
+            output = arr[0]+sumRecursive(Arrays.copyOfRange(arr, 1, arr.length));
+        }
+        return output;
+    }
 }
