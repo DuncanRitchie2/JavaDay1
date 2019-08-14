@@ -40,7 +40,7 @@ public class Edabit {
     }
 
     // Input a String, the return is In aLtErNaTiNg cApS.
-    public static String alternatingCaps(String string) {
+    public static String alternatingCapsUsingArray(String string) {
         String[] array = string.split("");
         for (int i = 0; i < array.length; i++) {
             if (i%2 == 0) {
@@ -51,6 +51,21 @@ public class Edabit {
             }
         }
         return StringMethods.toSeparatedString(array,"");
+    }
+
+    // The same function but not using an array or StringMethods.
+    public static String alternatingCaps(String s) {
+        String output = "";
+        for (int i = 0; i < s.length(); i++) {
+            String letter = s.substring(i,i+1);
+            if (i%2==0) {
+                output += letter.toUpperCase();
+            }
+            else {
+                output += letter.toLowerCase();
+            }
+        }
+        return output;
     }
 
     public static int numDigits(int num) {
