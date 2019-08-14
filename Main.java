@@ -73,6 +73,13 @@ public class Main {
                                                         "inferretque deos Latio, genus unde Latinum,\n" +
                                                         "Albanique patres, atque altae moenia Romae."));
 
+
+        int[] sortedIntegers = {1,4,5,8,9,12,14,14,22};
+        System.out.println("Is 4 in my array?                                         "+Edabit.binarySearch(sortedIntegers, 4));
+        System.out.println("Is 1 in my array?                                         "+Edabit.binarySearch(sortedIntegers, 1));
+        System.out.println("Is 22 in my array?                                        "+Edabit.binarySearch(sortedIntegers, 22));
+        System.out.println("Is 14 in my array?                                        "+Edabit.binarySearch(sortedIntegers, 14));
+        System.out.println("Is 13 in my array?                                        "+Edabit.binarySearch(sortedIntegers, 13));
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
 //        fulmar.makeNoise();

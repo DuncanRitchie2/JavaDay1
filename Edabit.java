@@ -287,4 +287,33 @@ public class Edabit {
         }
         return output;
     }
+
+    // This is a function to perform a binary search on an array of integers sorted in ascending order.
+    // It uses recursion, which is why we have the left & right parameters.
+    // There is a version with only the arr & elem parameters after this version.
+    public static boolean binarySearch(int[] arr, int left, int right, int elem) {
+        boolean bool;
+        if (left>right) {
+            bool = false;
+        }
+        else {
+            int middle = (int)Math.floor((left+right)/2);
+            if (arr[middle] < elem) {
+                bool = binarySearch(arr, middle+1, right, elem);
+            }
+            else if (arr[middle] > elem) {
+                bool = binarySearch(arr, left, middle-1, elem);
+            }
+            else {
+                bool = true;
+            }
+        }
+        return bool;
+    }
+
+    public static boolean binarySearch(int[] arr, int elem) {
+        int left = 0;
+        int right = arr.length-1;
+        return binarySearch(arr, left, right, elem);
+    }
 }
