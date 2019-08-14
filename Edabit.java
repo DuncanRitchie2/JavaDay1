@@ -239,4 +239,37 @@ public class Edabit {
             return false;
         }
     }
+
+    public static String reverseWordsLongerThan(String s) {
+        String[] array = s.split(" ");
+        int threshold = 5;
+        String newString = "";
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].length() < threshold) {
+                newString += array[i];
+            } else {
+                String reversedWord = "";
+                for (int j = 0; j < array[i].length(); j++) {
+                    reversedWord += array[i].substring(array[i].length() - j - 1, array[i].length() - j);
+                }
+                newString += reversedWord;
+            }
+            if (i < array.length - 1) {
+                newString += " ";
+            }
+        }
+        return newString;
+    }
+
+    // This is my first recursive function!
+    public static String reverseRecursive(String str) {
+        String substring;
+        if (str.length()<2) {
+            substring = str;
+        }
+        else {
+            substring = reverseRecursive(str.substring(1))+str.substring(0,1);
+        }
+        return substring;
+    }
 }

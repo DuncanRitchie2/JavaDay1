@@ -65,6 +65,13 @@ public class Main {
         System.out.println("Is @btinternet.com a valid email address?      "+Edabit.validateEmail("@btinternet.com"));
         System.out.println("Is duncanritchie@.btinternet.com a valid email address?      "+Edabit.validateEmail("duncanritchie@.btinternet.com"));
 
+        System.out.println(Edabit.reverseRecursive("meme"));
+        System.out.println(Edabit.reverseRecursive("fulmar"));
+        System.out.println(Edabit.reverseRecursive("abacus"));
+        System.out.println(Edabit.reverseRecursive("abba"));
+        System.out.println(Edabit.reverseRecursive("Abba"));
+        System.out.println(Edabit.reverseRecursive("O Fortuna, velut luna tu es variabilis. Semper crescens aut decrescens vita detestabilis."));
+
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
 //        fulmar.makeNoise();
