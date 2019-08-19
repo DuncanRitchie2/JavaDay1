@@ -409,4 +409,39 @@ public class Edabit {
         return output;
     }
 
+    // doCirclesTouch() takes two arrays of the form [radius, X position, Y position] and returns true if those two circles intersect or touch, false otherwise.
+    public static boolean doCirclesTouch(int[] c1, int[] c2) {
+        // c1 = eg. [r 10, x 0, y 0];
+        // c2 = eg. [r 10, x 10, y 10];
+        // horizontal distance between centres
+        int diffCentresX = c2[1] - c1[1];
+        // vertical distance between centres
+        int diffCentresY = c2[2] - c1[2];
+        // Pythagoras theorem to find the diagonal distance
+        double hypotenuse = Math.sqrt(Math.pow(diffCentresX,2) + Math.pow(diffCentresY,2));
+        // If hypotenuse is greater than the sum of the radii,
+        // the circles do not touch.
+        int sumOfRadii = c1[0] + c2[0];
+        return (hypotenuse <= sumOfRadii);
+    }
+
+    // highestCommonDivisor() is some weird algorithm Euclid came up with for finding the highest common divisor of two ints.
+    public static int highestCommonDivisor(int a, int b) {
+        // If a is less than b, swap them.
+        if (a<b) {
+            int temp = b;
+            b = a;
+            a = temp;
+        }
+        // Set r as the modulus.
+        int r = a%b;
+        // If a is divisible by b, return b.
+        if (r == 0) {
+            return b;
+        }
+        // Otherwise, recurse with a = b and b = r.
+        else {
+            return highestCommonDivisor(b, r);
+        }
+    }
 }
