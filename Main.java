@@ -80,7 +80,9 @@ public class Main {
         System.out.println("Is 22 in my array?                                        "+Edabit.binarySearch(sortedIntegers, 22));
         System.out.println("Is 14 in my array?                                        "+Edabit.binarySearch(sortedIntegers, 14));
         System.out.println("Is 13 in my array?                                        "+Edabit.binarySearch(sortedIntegers, 13));
-        
+
+        System.out.println(Edabit.sortLettersAlph("Welcome to Code Nation!"));
+
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
 //        fulmar.makeNoise();

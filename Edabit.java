@@ -1,6 +1,9 @@
 package com.duncanritchie;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
+import java.util.Collections;
 
 // I was doing some challenges on Edabit when the site suffered internal server errors.
 // So I saved my code here.
@@ -379,6 +382,31 @@ public class Edabit {
             }
         }
         int[] output = Arrays.copyOf(evens, numEvens);
+        System.out.println();
         return output;
     }
+
+    // sortDigitsDescending() sorts the digits of an int in descending order, e.g. 23230289231 -> 98333222210.
+    public static int sortDigitsDescending(final int num) {
+        String string = Integer.toString(num);
+        String[] array = string.split("");
+        Arrays.sort(array, Collections.reverseOrder());
+        String sortedString = "";
+        for (String digit : array) {
+            sortedString += digit;
+        }
+        return Integer.parseInt(sortedString);
+    }
+
+    // sortLettersAlph() sorts the characters of a String, e.g. "Welcome to Code Nation!" -> "   !CNWacdeeeilmnoooott".
+    public static String sortLettersAlph(String s) {
+        String[] array = s.split("");
+        Arrays.sort(array);
+        String output = "";
+        for (String letter : array) {
+            output += letter;
+        }
+        return output;
+    }
+
 }
