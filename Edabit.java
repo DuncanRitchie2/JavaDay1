@@ -154,22 +154,22 @@ public class Edabit {
         return numPrimes;
     }
 
-//    public static int countPrimesUpToNotUsingOwnFunction(int num) {
-//        int numPrimes = 0;
-//        for (int i = 2; i <= num; i++) {
-//            boolean isPrime = true;
-//            int factorCeiling = (int)Math.sqrt(i)+1;
-//            for (int j = 2; j < factorCeiling && isPrime; j++) {
-//                if (num%j==0) {
-//                    isPrime = false;
-//                }
-//            }
-//            if (isPrime) {
-//                numPrimes++;
-//            }
-//        }
-//        return numPrimes;
-//    }
+    public static int countPrimesUpToNotUsingOwnFunction(int num) {
+        int numPrimes = 0;
+        for (int i = 2; i <= num; i++) {
+            boolean isPrime = true;
+            int factorCeiling = (int)Math.sqrt(i)+1;
+            for (int j = 2; j < factorCeiling && isPrime; j++) {
+                if (num%j==0) {
+                    isPrime = false;
+                }
+            }
+            if (isPrime) {
+                numPrimes++;
+            }
+        }
+        return numPrimes;
+    }
 
     public static int[][] returnSquarePatch(int n) {
         int[][] square = new int[n][n];
@@ -349,5 +349,22 @@ public class Edabit {
             int[] output = {posCount, negSum};
             return output;
         }
+    }
+
+    // flipCase() flips the case of every letter in a string - upper to lower, lower to upper.
+    public static String flipCase(String str) {
+        String[] letters = str.split("");
+        String newString = "";
+        for (String letter : letters) {
+            String newLetter;
+            if (letter == letter.toLowerCase()) {
+                newLetter = letter.toUpperCase();
+            }
+            else {
+                newLetter = letter.toLowerCase();
+            }
+            newString += newLetter;
+        }
+        return newString;
     }
 }
