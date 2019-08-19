@@ -486,4 +486,19 @@ public class Edabit {
         }
         return nums;
     }
+
+    // filterStateNames() takes two parameters.
+    // The first param is an array of US state names and two-letter postal codes (eg. ["Arizona","Idaho","FL","CA","New Jersey"]).
+    // If the second parameter is "post", it filters to just the postal codes, otherwise, it filters to just the names.
+    public static String[] filterStateNames(String[] arr, String type) {
+        int count = 0;
+        String[] filtered = arr;
+        for (int i = 0; i < arr.length; i++) {
+            if (type.equals("post") ^ arr[i].length()>2) {
+                filtered[count] = arr[i];
+                count++;
+            }
+        }
+        return Arrays.copyOf(filtered, count);
+    }
 }
