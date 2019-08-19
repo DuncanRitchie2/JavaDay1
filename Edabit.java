@@ -367,4 +367,18 @@ public class Edabit {
         }
         return newString;
     }
+
+    // onlyEvens() takes an array of ints and returns the array with only the even numbers.
+    public static int[] onlyEvens(int[] nums) {
+        int numEvens = 0;
+        int[] evens = nums;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i]%2 == 0) {
+                evens[numEvens] = nums[i];
+                numEvens++;
+            }
+        }
+        int[] output = Arrays.copyOf(evens, numEvens);
+        return output;
+    }
 }
