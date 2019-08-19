@@ -501,4 +501,17 @@ public class Edabit {
         }
         return Arrays.copyOf(filtered, count);
     }
+
+    // Returns whether the String is a palindrome (ignoring basic punctuation).
+    public static boolean isPalindromeNonRecursive(String str) {
+        boolean bool = true;
+        String raw = str.replaceAll("/[ /,.\\-!'()[]]]/","").toLowerCase();
+        int length = raw.length();
+        for (int i = 0; i < length/2; i++) {
+            if (raw.substring(i,i+1).equals(raw.substring(length-i-1,length-i))) {
+                bool = false;
+            }
+        }
+        return bool;
+    }
 }
