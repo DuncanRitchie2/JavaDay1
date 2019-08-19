@@ -476,4 +476,14 @@ public class Edabit {
         }
         return bool;
     }
+
+    // cumulativeSum() changes every item of an int[] to the sum of it and all preceding items.
+    public static int[] cumulativeSum(int[] nums) {
+        if (nums.length>1) {
+            for (int i = 1; i < nums.length; i++) {
+                nums[i] += nums[i-1];
+            }
+        }
+        return nums;
+    }
 }
