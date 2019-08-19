@@ -71,6 +71,26 @@ public class Edabit {
         return output;
     }
 
+    // The same function but alternation pauses when a space is encountered, so result is "AlTeRnAtInG cApS", not "AlTeRnAtInG CaPs".
+    public static String alternatingCapsNotingSpaces(String s) {
+        String output = "";
+        boolean toggle = false;
+        for (int i = 0; i < s.length(); i++) {
+            String letter = s.substring(i,i+1);
+            if (letter.equals(" ")) {
+                output += letter;
+                toggle = !toggle;
+            }
+            else if (i%2 == 0 ^ toggle) {
+                output += letter.toUpperCase();
+            }
+            else {
+                output += letter.toLowerCase();
+            }
+        }
+        return output;
+    }
+
     public static int numDigits(int num) {
         int numberOfDigits = 1;
         while (num/10>1){
