@@ -464,4 +464,16 @@ public class Edabit {
             return highestCommonDivisor(b, r);
         }
     }
+
+    // containsDoubleLetters() returns whether the String contains a double letters.
+    public static boolean containsDoubleLetters(String word) {
+        boolean bool = false;
+        for (int i = 1; i < word.length(); i++) {
+            // This compares every letter (except the first) to the one before it.
+            if (word.substring(i-1,i).equals(word.substring(i,i+1))) {
+                bool = true;
+            }
+        }
+        return bool;
+    }
 }
