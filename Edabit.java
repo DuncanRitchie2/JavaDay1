@@ -494,7 +494,7 @@ public class Edabit {
         int count = 0;
         String[] filtered = arr;
         for (int i = 0; i < arr.length; i++) {
-            if (type.equals("post") ^ arr[i].length()>2) {
+            if (type.equals("post") ^ arr[i].length()==2) {
                 filtered[count] = arr[i];
                 count++;
             }
@@ -505,10 +505,14 @@ public class Edabit {
     // Returns whether the String is a palindrome (ignoring basic punctuation).
     public static boolean isPalindromeNonRecursive(String str) {
         boolean bool = true;
-        String raw = str.replaceAll("/[ /,.\\-!'()[]]]/","").toLowerCase();
+        // [ /,;.\-!?'()[]]
+        String raw = str.replaceAll("[,;.!?/ -]","").toLowerCase();
         int length = raw.length();
         for (int i = 0; i < length/2; i++) {
-            if (raw.substring(i,i+1).equals(raw.substring(length-i-1,length-i))) {
+            String leftChar = raw.substring(i,i+1);
+            String rightChar = raw.substring(length-i-1,length-i);
+            if (!leftChar.equals(rightChar)) {
+                System.out.println(leftChar+" is not the same as "+rightChar);
                 bool = false;
             }
         }

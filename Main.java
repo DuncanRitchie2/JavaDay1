@@ -83,6 +83,9 @@ public class Main {
 
         System.out.println(Edabit.sortLettersAlph("Welcome to Code Nation!"));
 
+        String panama = "A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!";
+        System.out.println("Is "+panama+" a palindrome?  "+Edabit.isPalindromeNonRecursive(panama));
+
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
 //        fulmar.makeNoise();
