@@ -537,5 +537,24 @@ public class Edabit {
             return isVowel + countVowels(str.substring(1,str.length()));
         }
     }
+
+    // xCountEqualsOCount() returns whether the letter X appears in a String as many tines as the letter O.
+    public static boolean xCountEqualsOCount (String str) {
+        // diff will equal number of X - number of O.
+        int diff = 0;
+        // array is an array of letters.
+        String[] array = str.toLowerCase().split("");
+        // For every letter, we increment diff if X, and decrement if O.
+        for (String letter : array) {
+            if (letter.equals("x")) {
+                diff++;
+            }
+            else if (letter.equals("o")) {
+                diff--;
+            }
+        }
+        // diff will equal 0 if the X and O counts are equal.
+        return diff==0;
+    }
 }
 
