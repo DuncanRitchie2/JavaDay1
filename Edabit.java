@@ -556,5 +556,21 @@ public class Edabit {
         // diff will equal 0 if the X and O counts are equal.
         return diff==0;
     }
+
+    // hashPlusCount() returns an array where the first value is the count of the # character in a String,
+    // and the second value is the count of the + character in a String.
+    public static int[] hashPlusCount(String s) {
+        int[] output = new int[2];
+        String[] letters = s.split("");
+        for (String letter : letters) {
+            if (letter.equals("#")) {
+                output[0]++;
+            }
+            else if (letter.equals("+")) {
+                output[1]++;
+            }
+        }
+        return output;
+    }
 }
 
