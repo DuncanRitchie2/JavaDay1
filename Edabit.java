@@ -505,17 +505,37 @@ public class Edabit {
     // Returns whether the String is a palindrome (ignoring basic punctuation).
     public static boolean isPalindromeNonRecursive(String str) {
         boolean bool = true;
-        // [ /,;.\-!?'()[]]
-        String raw = str.replaceAll("[,;.!?/ -]","").toLowerCase();
+        String raw = str.replaceAll("[,;.!?/ -]", "").toLowerCase();
         int length = raw.length();
-        for (int i = 0; i < length/2; i++) {
-            String leftChar = raw.substring(i,i+1);
-            String rightChar = raw.substring(length-i-1,length-i);
+        for (int i = 0; i < length / 2; i++) {
+            String leftChar = raw.substring(i, i + 1);
+            String rightChar = raw.substring(length - i - 1, length - i);
             if (!leftChar.equals(rightChar)) {
-                System.out.println(leftChar+" is not the same as "+rightChar);
+                System.out.println(leftChar + " is not the same as " + rightChar);
                 bool = false;
             }
         }
         return bool;
     }
+
+    // countVowels() counts the number of letters AEIOU (case-insensitive) in the input String. Uses recursion.
+    public static int countVowels(String str) {
+        if (str.equals("")) {
+            return 0;
+        }
+        else {
+            str = str.toLowerCase();
+            String firstLetter = str.substring(0,1);
+            int isVowel = 0;
+            if (firstLetter.equals("a")
+                    || firstLetter.equals("e")
+                    || firstLetter.equals("i")
+                    || firstLetter.equals("o")
+                    || firstLetter.equals("u")) {
+                isVowel = 1;
+            }
+            return isVowel + countVowels(str.substring(1,str.length()));
+        }
+    }
 }
+
