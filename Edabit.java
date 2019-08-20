@@ -572,5 +572,30 @@ public class Edabit {
         }
         return output;
     }
+
+    // areAllLettersInString() returns whether all the characters in the second param are in the first param.
+    // Case-insensitive, but punctuation-sensitive.
+    // "Code Nation", "noted" => true
+    // "CodeNation", "no ted" => false (because the space in "noted" is not in "CodeNation")
+    // "Code Nation", "denoted" => false (because there's only one D and only one E in "Code Nation")
+    public static boolean areAllLettersInString(String superString, String subString) {
+        String[] superArray = superString.toLowerCase().split("");
+        String[] subArray = subString.toLowerCase().split("");
+        boolean bool = true;
+        for (int i = 0; i < subArray.length; i++) {
+            boolean letterIsInSuperArray = false;
+            for (int j = 0; j < superArray.length; j++) {
+                if (subArray[i].equals(superArray[j])) {
+                    letterIsInSuperArray = true;
+                    superArray[j] = "hello";
+                    break;
+                }
+            }
+            if (!letterIsInSuperArray) {
+                bool = false;
+            }
+        }
+        return bool;
+    }
 }
 
