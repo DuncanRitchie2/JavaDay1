@@ -597,5 +597,17 @@ public class Edabit {
         }
         return bool;
     }
+
+    // getMiddle() returns the middle character of a String if its length is odd;
+    // or the middle two characters if the length is even. Recursive.
+    public static String getMiddle(String word) {
+        if (word.length() <= 2) {
+            return word;
+        }
+        else {
+            String withoutFirstAndLastLetter = word.substring(1,word.length()-1);
+            return getMiddle(withoutFirstAndLastLetter);
+        }
+    }
 }
 
