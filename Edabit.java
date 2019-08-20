@@ -609,5 +609,21 @@ public class Edabit {
             return getMiddle(withoutFirstAndLastLetter);
         }
     }
+
+    // maskify() replaces every character of a String except the last four with a # sign.
+    // E.g. "My_secret_password123" => "#################d123"
+    public static String maskify(String s) {
+        int numCharsShown = 4;
+        String maskChar = "#";
+        String[] array = s.split("");
+        for (int i = 0; i < array.length - numCharsShown; i++) {
+            array[i] = maskChar;
+        }
+        String output = "";
+        for (String letter : array) {
+            output += letter;
+        }
+        return output;
+    }
 }
 
