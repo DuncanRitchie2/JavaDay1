@@ -643,5 +643,21 @@ public class Edabit {
         double[] output = {min, max};
         return output;
     }
+
+    // firstVowel() returns the index of the first letter AEIOU in the String, or -1 if there is no vowel.
+    public static int firstVowel(String str) {
+        String[] array = str.toLowerCase().split("");
+        for (int i = 0; i < array.length; i++) {
+            String letter = array[i];
+            if (letter.equals("a")
+                    || letter.equals("e")
+                    || letter.equals("i")
+                    || letter.equals("o")
+                    || letter.equals("u")) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
 
