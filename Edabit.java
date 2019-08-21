@@ -625,5 +625,23 @@ public class Edabit {
         }
         return output;
     }
+
+    // minMax() returns an array containing the minimum and the maximum of an array of doubles.
+    public static double[] minMax(double[] arr) {
+        double min = arr[0];
+        double max = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        double[] output = {min, max};
+        return output;
+    }
 }
 
