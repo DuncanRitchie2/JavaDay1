@@ -659,5 +659,17 @@ public class Edabit {
         }
         return -1;
     }
+
+//    removeStringsFromArray() removes the Strings from a heterogeneous array.
+    public static Object[] removeStringsFromArray(Object[] array) {
+        int newLength = 0;
+        for (Object item : array) {
+            if (!item.getClass().getName().equals("java.lang.String")) {
+                array[newLength] = item;
+                newLength++;
+            }
+        }
+        return Arrays.copyOf(array, newLength);
+    }
 }
 
