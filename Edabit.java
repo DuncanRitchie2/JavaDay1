@@ -772,8 +772,34 @@ public class Edabit {
         }
     }
 
+    // isNumSquare() returns whether a double is a square number (0,1,4,9,16,..).
     public static boolean isNumSquare(double num) {
         return ((int)Math.sqrt(num) == Math.sqrt(num));
+    }
+
+    // isPlural() returns whether a String ends in "s".
+    public static boolean isPlural(String word) {
+        return word.substring(word.length()-1).equals("s");
+    }
+
+    // evensBelow() produces an array of even numbers (>1) less than the parameter.
+    public static int[] evensBelow(int num) {
+        int length = (int)num/2;
+        int[] evens = new int[length];
+        for (int i = 0; i < length; i++) {
+            evens[i] = 2*i+2;
+        }
+        return evens;
+    }
+
+    // e.g. initialism(["Joey Tribbiani", "Rachel Green", "phoebe buffay, "Chandler", "Monica Geller"]) => "CJMPR".
+    public static String initialism(String[] friends) {
+        Arrays.sort(friends);
+        String output = "";
+        for (String friend : friends) {
+            output += friend.substring(0, 1).toUpperCase();
+        }
+        return output;
     }
 }
 
