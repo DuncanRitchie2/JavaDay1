@@ -650,10 +650,10 @@ public class Edabit {
         for (int i = 0; i < array.length; i++) {
             String letter = array[i];
             if (letter.equals("a")
-                    || letter.equals("e")
-                    || letter.equals("i")
-                    || letter.equals("o")
-                    || letter.equals("u")) {
+                || letter.equals("e")
+                || letter.equals("i")
+                || letter.equals("o")
+                || letter.equals("u")) {
                 return i;
             }
         }
@@ -670,6 +670,96 @@ public class Edabit {
             }
         }
         return Arrays.copyOf(array, newLength);
+    }
+
+    // removeSpecial() returns a String without any characters other than letters, digits, space, underscore, hyphen.
+    public static String removeSpecial(String s) {
+        String allowed = "abcdefghijklmnopqrstuvwxyz0123456789 _-";
+        String[] array = s.split("");
+        String output = "";
+        for (String character : array) {
+            if (allowed.contains(character.toLowerCase())) {
+                output += character;
+            }
+        }
+        return output;
+    }
+
+    // removeSpecialUsingRegex() does the same as removeSpecial() but uses a regex internally.
+    public static String removeSpecialUsingRegex(String s) {
+        String output = s.replaceAll("(?i)[^abcdefghijklmnopqrstuvwxyz0123456789 _-]","");
+        return output;
+    }
+
+    // doesNotContainDistractions() returns true if any "distraction" string is found.
+    public static boolean doesNotContainDistractions(String string) {
+        String[] distractions = {"anime","meme","vine","roasts","Danny Devito"};
+        for (String word : distractions) {
+            if (string.contains(word)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // capNames() returns an array with the first character of every string converted to upper case and all other characters converted to lower case.
+    public static String[] capNames(String[] s) {
+        for (int i = 0; i < s.length; i++) {
+            String initial = s[i].substring(0,1).toUpperCase();
+            String rest = s[i].substring(1,s[i].length()).toLowerCase();
+            s[i] = initial + rest;
+        }
+        return s;
+    }
+
+
+    // isSquareMagic() takes any array int[n][n] and returns whether the "rows", "columns", and "main diagonals" sum to the same total.
+    public static boolean isSquareMagic(int[][] square) {
+        int size = square.length;
+        // Let's calculate the target sum.
+        int firstRowSum = 0;
+        for (int num : square[0]) {
+            firstRowSum += num;
+        }
+        // firstRowSum is now the target sum.
+        // Let's check the other rows.
+        for (int i = 1; i < size; i++) {
+            int rowSum = 0;
+            for (int num : square[i]) {
+                rowSum += num;
+            }
+            if (rowSum != firstRowSum) {
+                return false;
+            }
+        }
+        // Let's check the columns.
+        for (int i = 0; i < size; i++) {
+            int colSum = 0;
+            for (int j = 0; j < size; j++) {
+                colSum += square[i][j];
+            }
+            if (colSum != firstRowSum) {
+                return false;
+            }
+        }
+        // Let's check the top-left-bottom-right diag.
+        int diagSum = 0;
+        for (int i = 0; i < size; i++) {
+            diagSum += square[i][i];
+        }
+        if (diagSum != firstRowSum) {
+            return false;
+        }
+        // Let's check the top-right-bottom-left diag.
+        diagSum = 0;
+        for (int i = 0; i < size; i++) {
+            diagSum += square[i][size-i-1];
+        }
+        if (diagSum != firstRowSum) {
+            return false;
+        }
+        // If we still haven't returned false, we return true.
+        return true;
     }
 }
 

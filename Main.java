@@ -86,6 +86,8 @@ public class Main {
         String panama = "A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!";
         System.out.println("Is "+panama+" a palindrome?  "+Edabit.isPalindromeNonRecursive(panama));
 
+        System.out.println("Removing special characters from the palindrome...        "+Edabit.removeSpecialUsingRegex(panama));
+
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
 //        fulmar.makeNoise();
