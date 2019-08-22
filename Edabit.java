@@ -771,5 +771,9 @@ public class Edabit {
             return 1 + stringLengthRecursive(str.substring(1));
         }
     }
+
+    public static boolean isNumSquare(double num) {
+        return ((int)Math.sqrt(num) == Math.sqrt(num));
+    }
 }
 
