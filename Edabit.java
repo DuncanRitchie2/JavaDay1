@@ -761,5 +761,15 @@ public class Edabit {
         // If we still haven't returned false, we return true.
         return true;
     }
+
+    // stringLengthRecursive() returns the length of a String. Recursive.
+    public static int stringLengthRecursive(String str) {
+        if (str.equals("")) {
+            return 0;
+        }
+        else {
+            return 1 + stringLengthRecursive(str.substring(1));
+        }
+    }
 }
 

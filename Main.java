@@ -88,6 +88,9 @@ public class Main {
 
         System.out.println("Removing special characters from the palindrome...        "+Edabit.removeSpecialUsingRegex(panama));
 
+        int[][] magicSquare = {{8, 1, 6},{3, 5, 7},{4, 9, 2}};
+        System.out.println("Is my square magic? ...                                   "+Edabit.isSquareMagic(magicSquare));
+
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
 //        fulmar.makeNoise();
