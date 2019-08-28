@@ -846,5 +846,24 @@ public class Edabit {
         }
         return output;
     }
+
+    // mean() returns the mean of an array of integers. Below is the polymorph for doubles.
+    public static double mean(int[] nums) {
+        double sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        double mean = (double)Math.round(100*sum/nums.length)/100;
+        return mean;
+    }
+
+    public static double mean(double[] nums) {
+        double sum = 0;
+        for (double num : nums) {
+            sum += num;
+        }
+        double mean = Math.round(100*sum/nums.length)/100;
+        return mean;
+    }
 }
 
