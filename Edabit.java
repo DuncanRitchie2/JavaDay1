@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.regex.Pattern;
 
 // I was doing some challenges on Edabit when the site suffered internal server errors.
 // So I saved my code here.
@@ -792,6 +793,7 @@ public class Edabit {
         return evens;
     }
 
+    // Returns the capitalised initials of the strings given, sorted alphabetically.
     // e.g. initialism(["Joey Tribbiani", "Rachel Green", "phoebe buffay, "Chandler", "Monica Geller"]) => "CJMPR".
     public static String initialism(String[] friends) {
         Arrays.sort(friends);
@@ -800,6 +802,11 @@ public class Edabit {
             output += friend.substring(0, 1).toUpperCase();
         }
         return output;
+    }
+
+    // Returns true if the String consists of only 4 or 6 digits, otherwise false.
+    public static boolean validatePIN(String s) {
+        return Pattern.matches("\\b(\\d{4}|\\d{6})\\b", s);
     }
 }
 
