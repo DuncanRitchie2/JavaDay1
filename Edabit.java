@@ -821,5 +821,30 @@ public class Edabit {
         }
         return Arrays.copyOf(nums, count);
     }
+
+    // sumTwoSmallestNums() returns the sum of the two smallest positive numbers in an array, or 0 if that's not applicable.
+    public static int sumTwoSmallestNums(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] > 0) {
+                return arr[i] + arr[i+1];
+            }
+        }
+        return 0;
+    }
+
+    // makeTitle() returns a String with the initial of every word uppercased.
+    public static String makeTitle(String s) {
+        String[] array = s.split(" ");
+        String output = "";
+        for (int i = 0; i < array.length; i++) {
+            output += array[i].substring(0,1).toUpperCase();
+            output += array[i].substring(1);
+            if (i!=array.length-1) {
+                output += " ";
+            }
+        }
+        return output;
+    }
 }
 
