@@ -808,5 +808,18 @@ public class Edabit {
     public static boolean validatePIN(String s) {
         return Pattern.matches("\\b(\\d{4}|\\d{6})\\b", s);
     }
+
+    // uniqueSort() returns array of ints, sorted and with duplicates removed.
+    public static int[] uniqueSort(int[] nums) {
+        Arrays.sort(nums);
+        int count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i-1]) {
+                nums[count] = nums[i];
+                count++;
+            }
+        }
+        return Arrays.copyOf(nums, count);
+    }
 }
 
