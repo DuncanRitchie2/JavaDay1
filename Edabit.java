@@ -865,5 +865,19 @@ public class Edabit {
         double mean = Math.round(100*sum/nums.length)/100;
         return mean;
     }
+
+    // swapCharPairs() reverses the order of every pair of characters in a String.
+    // E.g. "Duncan Ritchie" => "uDcnnaR tihcei".
+    public static String swapCharPairs(String str) {
+        String output = "";
+        for (int i = 0; i < str.length()/2; i++) {
+            output += str.substring(2*i+1,2*i+2);
+            output += str.substring(2*i,2*i+1);
+        }
+        if (str.length()%2==1) {
+            output += str.substring(str.length()-1);
+        }
+        return output;
+    }
 }
 

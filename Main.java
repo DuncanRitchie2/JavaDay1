@@ -10,7 +10,8 @@ public class Main {
 //        System.out.println("Are DuncanusRichardus and DuransAcHincDurus anagrams?       "+Edabit.areAnagrams("DuncanusRichardus","DuransAcHincDurus"));
 //
 //        System.out.println("My name in alternating caps:                                "+Edabit.alternatingCaps("Duncan Ritchie"));
-//        System.out.println("Carmen Buranum in alternating caps:                         "+Edabit.alternatingCaps("o fortuna, velut luna tu es variabilis. semper crescens aut decrescens vita detestabilis."));
+        String oFortuna = "O Fortuna, velut luna tu es variabilis. Semper crescens aut decrescens vita detestabilis.";
+//        System.out.println("Carmen Buranum in alternating caps:                         "+Edabit.alternatingCaps(oFortuna));
 //
 //        System.out.println("Persistence of 999                                          "+Edabit.multiplicativePersistence(999));
 //        System.out.println("Persistence of 25                                           "+Edabit.multiplicativePersistence(25));
@@ -64,14 +65,16 @@ public class Main {
 //        System.out.println("Is duncanritchie.btinternet@com a valid email address?    "+Edabit.validateEmail("duncanritchie.btinternet@com"));
 //        System.out.println("Is @btinternet.com a valid email address?                 "+Edabit.validateEmail("@btinternet.com"));
 //        System.out.println("Is duncanritchie@.btinternet.com a valid email address?   "+Edabit.validateEmail("duncanritchie@.btinternet.com"));
+
+        String aeneidProem = "Arma virumque cano, Troiae qui primus ab oris\n" +
+                            "Italiam, fato profugus, Laviniaque venit\n" +
+                            "litora, multum ille et terris iactatus et alto\n" +
+                            "vi superum saevae memorem Iunonis ob iram;\n" +
+                            "multa quoque et bello passus, dum conderet urbem,\n" +
+                            "inferretque deos Latio, genus unde Latinum,\n" +
+                            "Albanique patres, atque altae moenia Romae.";
 //
-//        System.out.println(Edabit.reverseRecursive("Arma virumque cano, Troiae qui primus ab oris\n" +
-//                                                        "Italiam, fato profugus, Laviniaque venit\n" +
-//                                                        "litora, multum ille et terris iactatus et alto\n" +
-//                                                        "vi superum saevae memorem Iunonis ob iram;\n" +
-//                                                        "multa quoque et bello passus, dum conderet urbem,\n" +
-//                                                        "inferretque deos Latio, genus unde Latinum,\n" +
-//                                                        "Albanique patres, atque altae moenia Romae."));
+        System.out.println(Edabit.reverseRecursive(aeneidProem));
 //
 //
 //        int[] sortedIntegers = {1,4,5,8,9,12,14,14,22};
@@ -91,11 +94,13 @@ public class Main {
 //        int[][] magicSquare = {{8, 1, 6},{3, 5, 7},{4, 9, 2}};
 //        System.out.println("Is my square magic? ...                                   "+Edabit.isSquareMagic(magicSquare));
 
-        System.out.println("Are these numbers square?");
-        for (int i = 0; i < 1000; i++) {
-            System.out.println(i+"    "+Edabit.isNumSquare(i));
-        }
-
+//        System.out.println("Are these numbers square?");
+//        for (int i = 0; i < 1000; i++) {
+//            System.out.println(i+"    "+Edabit.isNumSquare(i));
+//        }
+        System.out.println(Edabit.swapCharPairs("Duncan Ritchie"));
+        System.out.println(Edabit.swapCharPairs(oFortuna));
+        System.out.println(Edabit.swapCharPairs(aeneidProem));
 
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
