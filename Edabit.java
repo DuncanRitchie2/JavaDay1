@@ -870,10 +870,12 @@ public class Edabit {
     // E.g. "Duncan Ritchie" => "uDcnnaR tihcei".
     public static String swapCharPairs(String str) {
         String output = "";
+        // Swap every pair of characters.
         for (int i = 0; i < str.length()/2; i++) {
             output += str.substring(2*i+1,2*i+2);
             output += str.substring(2*i,2*i+1);
         }
+        // If there is one character left unpaired, add it on.
         if (str.length()%2==1) {
             output += str.substring(str.length()-1);
         }
