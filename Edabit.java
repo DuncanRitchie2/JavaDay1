@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 // I was doing some challenges on Edabit when the site suffered internal server errors.
@@ -880,6 +881,39 @@ public class Edabit {
             output += str.substring(str.length()-1);
         }
         return output;
+    }
+
+    // Returns the positive root x of the equation ax²+bx+c.
+    // I DON'T THINK THIS WORKS.
+    public static int quadraticEquation(int a, int b, int c) {
+        double sqrt = Math.sqrt(b ^ 2 - 4 * a * c);
+        double root1 = (sqrt - b) / (2*a);
+        double root2 = (- sqrt - b) / (2*a);
+        if (root1 > root2) {
+            return (int) root1;
+        }
+        return (int) root2;
+    }
+
+    // Returns true if every word in a sentence (except the first) begins with the last letter of the previous word.
+    public static boolean isSmooth(String sentence) {
+        String lowercase = sentence.toLowerCase();
+
+        Matcher spaceMatcher = Pattern.compile("\\s").matcher(lowercase);
+        int numSpaces = 0;
+        while (spaceMatcher.find()) {
+            numSpaces++;
+        }
+        System.out.println("There are "+numSpaces+" spaces in the string.");
+
+        Matcher smoothMatcher = Pattern.compile("([A-Za-z])\\s\\1").matcher(lowercase);
+        int numSmoothWords = 0;
+        while (smoothMatcher.find()) {
+            numSmoothWords++;
+        }
+        System.out.println("There are "+numSmoothWords+" smooth words in the string.");
+
+        return numSpaces == numSmoothWords;
     }
 }
 

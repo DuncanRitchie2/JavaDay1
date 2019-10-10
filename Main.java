@@ -98,9 +98,16 @@ public class Main {
 //        for (int i = 0; i < 1000; i++) {
 //            System.out.println(i+"    "+Edabit.isNumSquare(i));
 //        }
-        System.out.println(Edabit.swapCharPairs("Duncan Ritchie"));
-        System.out.println(Edabit.swapCharPairs(oFortuna));
-        System.out.println(Edabit.swapCharPairs(aeneidProem));
+//        System.out.println(Edabit.swapCharPairs("Duncan Ritchie"));
+//        System.out.println(Edabit.swapCharPairs(oFortuna));
+//        System.out.println(Edabit.swapCharPairs(aeneidProem));
+//
+//        System.out.println(Edabit.quadraticEquation(1, 2, -3)+" should equal 1");
+//        System.out.println(Edabit.quadraticEquation(2, -7, 3)+" should equal 3");
+//        System.out.println(Edabit.quadraticEquation(1, -12, -28)+" should equal 14");
+
+
+        System.out.println(Edabit.isSmooth("Which hedgehog got to overrule everyone's stipulations?"));
 
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
