@@ -915,5 +915,35 @@ public class Edabit {
 
         return numSpaces == numSmoothWords;
     }
+
+    // Returns true if the given number equals the sum of all of the digits raised to the power of the number of digits, otherwise false.
+    // e.g. 153 => true, because 153 has 3 digits and 1 cubed + 5 cubed + 3 cubed = 153.
+    // e.g. 1634 => true, because 1634 has 4 digits and 1⁴ + 6⁴ + 3⁴ + 4⁴ = 1634.
+    public static boolean isNarcissistic(int num) {
+        if (num>=0) {
+            return false;
+        }
+        // Get number of digits.
+        int numDigits = 0;
+        int temp = num;
+        while (temp>0) {
+            numDigits++;
+            temp/=10;
+        }
+        // Split num into an array of digits.
+        int[] digits = new int[numDigits];
+        temp = num;
+        for (int i = 0; i < numDigits; i++) {
+            digits[i] = temp%10;
+            temp/=10;
+        }
+        // Add up the digits to the power of numDigits.
+        temp = 0;
+        for (int digit : digits) {
+            temp+=Math.pow(digit,numDigits);
+        }
+        // A number is narcissistic if the total equals it.
+        return temp==num;
+    }
 }
 

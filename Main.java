@@ -107,7 +107,13 @@ public class Main {
 //        System.out.println(Edabit.quadraticEquation(1, -12, -28)+" should equal 14");
 
 
-        System.out.println(Edabit.isSmooth("Which hedgehog got to overrule everyone's stipulations?"));
+//        System.out.println(Edabit.isSmooth("Which hedgehog got to overrule everyone's stipulations?"));
+
+        for (int i = 100; i < 10000; i++) {
+            if(Edabit.isNarcissistic(i)) {
+                System.out.println(i+" is narcissistic.");
+            }
+        }
 
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");
