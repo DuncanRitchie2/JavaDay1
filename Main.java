@@ -115,13 +115,15 @@ public class Main {
 //            }
 //        }
 
-        String[][] testRhymes = {{"Sam I am!","Green eggs and ham"},{"You are off to the races","a splendid day"},{"Head straight to town...","Don't look down!"}};
+//        String[][] testRhymes = {{"Sam I am!","Green eggs and ham"},{"You are off to the races","a splendid day"},{"Head straight to town...","Don't look down!"}};
+//
+//        for (String[] pair : testRhymes) {
+//            System.out.println(pair[0]);
+//            System.out.println(pair[1]);
+//            System.out.println(Edabit.doesRhyme(pair[0], pair[1]));
+//        }
 
-        for (String[] pair : testRhymes) {
-            System.out.println(pair[0]);
-            System.out.println(pair[1]);
-            System.out.println(Edabit.doesRhyme(pair[0], pair[1]));
-        }
+//        System.out.println(Edabit.longestZeroSubstring("00100002000100111111"));
 
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
 //        fulmar.setName("fulmar");

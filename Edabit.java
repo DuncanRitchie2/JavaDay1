@@ -960,5 +960,27 @@ public class Edabit {
 
         return lastWordFromFirstVowel1.equals(lastWordFromFirstVowel2);
     }
+
+    // returns the longest String of consecutive zeros ("0") in an input String.
+    public static String longestZeroSubstring(String str) {
+        String output = "";
+        int temp = 0;
+        for (int i = 1; i < str.length(); i++) {
+            if (str.substring(i,i+1).equals(str.substring(i-1,i))
+                    && str.substring(i,i+1).equals("0") ) {
+                temp++;
+            }
+            else if (str.substring(i,i+1).equals("0")) {
+                temp = 1;
+            }
+            else {
+                temp = 0;
+            }
+            if (temp>output.length()) {
+                output += "0";
+            }
+        }
+        return output;
+    }
 }
 
