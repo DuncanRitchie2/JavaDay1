@@ -945,5 +945,20 @@ public class Edabit {
         // A number is narcissistic if the total equals it.
         return temp==num;
     }
+
+    //
+    public static boolean doesRhyme(String str1, String str2) {
+        String[] words1 = str1.replaceAll("[.!?,:;-]","").toLowerCase().split(" ");
+        String[] words2 = str2.replaceAll("[.!?,:;-]","").toLowerCase().split(" ");
+        String lastWord1 = words1[words1.length-1];
+        String lastWord2 = words2[words2.length-1];
+
+        String lastWordFromFirstVowel1 = lastWord1.replaceAll("[bcdfghjklmnprstvwxyz]+(?=[aeiou])","");
+        String lastWordFromFirstVowel2 = lastWord2.replaceAll("[bcdfghjklmnprstvwxyz]+(?=[aeiou])","");
+        System.out.println(lastWordFromFirstVowel1);
+        System.out.println(lastWordFromFirstVowel2);
+
+        return lastWordFromFirstVowel1.equals(lastWordFromFirstVowel2);
+    }
 }
 

@@ -109,10 +109,18 @@ public class Main {
 
 //        System.out.println(Edabit.isSmooth("Which hedgehog got to overrule everyone's stipulations?"));
 
-        for (int i = 100; i < 10000; i++) {
-            if(Edabit.isNarcissistic(i)) {
-                System.out.println(i+" is narcissistic.");
-            }
+//        for (int i = 100; i < 10000; i++) {
+//            if(Edabit.isNarcissistic(i)) {
+//                System.out.println(i+" is narcissistic.");
+//            }
+//        }
+
+        String[][] testRhymes = {{"Sam I am!","Green eggs and ham"},{"You are off to the races","a splendid day"},{"Head straight to town...","Don't look down!"}};
+
+        for (String[] pair : testRhymes) {
+            System.out.println(pair[0]);
+            System.out.println(pair[1]);
+            System.out.println(Edabit.doesRhyme(pair[0], pair[1]));
         }
 
 //        Bird fulmar = new Bird("fulmarr","Fulmarus glacialis",true,"It roosts on cliffs.","squawk");
